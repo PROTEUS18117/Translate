@@ -1,0 +1,8 @@
+@import "bootstrap";
+.oswald{
+    font-family: 'Oswald', sans-serif;
+}
+.cover-container
+{
+    max-width: 42em;
+}
