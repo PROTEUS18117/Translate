@@ -47,7 +47,8 @@ class IndexController extends AbstractController
         if ($name === null or $name === '') {
             throw new HttpException(400, 'Введите цель запроса.');
         }
-        return $this->render("search.html.twig");
+        $words = $this->fetcher->all($name);
+        return $this->render("search.html.twig",['words'=>$words]);
 
     }
 
