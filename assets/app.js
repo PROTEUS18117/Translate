@@ -38,4 +38,31 @@ document.querySelector("#button_create").onclick = function () {
                 console.log("NO_SASAT")
             }
         })
+
+
 }
+
+document.querySelector("#csv_create").onclick = function () {
+    var fileInput = document.querySelector('[name="csv"]');
+    var formdata = new FormData();
+    formdata.append("csv", fileInput.files[0], "/C:/Users/Wallrus/Desktop/слова.csv");
+
+    var requestOptions = {
+        method: 'POST',
+        body: formdata,
+        redirect: 'follow'
+    };
+
+    fetch("http://trans/word/from-csv", requestOptions)
+        .then((response) => {
+            console.log(response)
+            if (response.ok) {
+                alert("Сохранено")
+                console.log("SASAT")
+            } else {
+                alert("Смерть")
+                console.log("NO_SASAT")
+            }
+        })
+}
+
